@@ -20,8 +20,8 @@ export default defineType({
         }),
         defineField({
             name: 'year',
-            title: 'Year',
-            type: 'number',
+            title: 'Year/Duration',
+            type: 'string',
         }),
         defineField({
             name: 'description',
