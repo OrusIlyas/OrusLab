@@ -16,7 +16,7 @@ const Animation = () => {
         <div className='flex justify-center items-center mt-16' data-aos="fade-up">
             <div >
                 <Image
-                    className=''
+                    className='w-full'
                     src="/deer-6.png"
                     width={1400}
                     height={700}
