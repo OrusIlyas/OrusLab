@@ -11,7 +11,7 @@ const Card = ({ title, image, year, description, fundedBy }) => {
         : description;
 
     return (
-        <div className="border border-gray-300 rounded-lg p-4 m-4 shadow-md bg-white">
+        <div className="border border-gray-300 rounded-lg p-4 shadow-md bg-white">
             {image && (
                 <img
                     src={urlFor(image).url()}
@@ -19,8 +19,10 @@ const Card = ({ title, image, year, description, fundedBy }) => {
                     className="w-full h-64 mb-4 object-cover rounded-t-lg"
                 />
             )}
-            <h2 className="text-lg font-semibold mb-2">{title}</h2>
-            <h3 className="text-xs font-semibold mb-2">{year}, {fundedBy} </h3>
+            <h2 className="text-lg font-semibold mb-2 h-28">{title}</h2>
+            <h3 className="text-xs font-semibold mb-2">{year}</h3>
+            <h3 className="text-xs font-semibold mb-2">{fundedBy}</h3>
+
             <div className="relative">
                 <p
                     className={`text-sm mb-2 ${showFullText ? 'max-h-none' : 'max-h-[4.5em] overflow-hidden'}`}
