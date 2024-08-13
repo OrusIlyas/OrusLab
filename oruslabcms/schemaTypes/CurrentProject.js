@@ -28,11 +28,11 @@ export default defineType({
             title: 'Description',
             type: 'text',
         }),
-        // defineField({
-        //     name: 'subtitle',
-        //     title: 'Subtitle',
-        //     type: 'string',
-        // }),
+        defineField({
+            name: 'fundedby',
+            title: 'Funded By',
+            type: 'string',
+        }),
         // defineField({
         //     name: 'timestamp',
         //     title: 'Timestamp',

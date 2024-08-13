@@ -30,7 +30,7 @@ const Page = () => {
                 sustainable conservation strategies. This holistic approach underscores the critical 
                 role of understanding human dimensions in wildlife conservation."
 
-                image2="/Conservation-1.jpg"
+                image2="/elephant-5.jpg"
                 image3="/Conservation-2.jpg"
             />
         </div>

@@ -18,7 +18,7 @@ const Page = () => {
                 pellet group sampling, and scat analysis. This comprehensive and multidisciplinary approach 
                 significantly contributes to understanding and conserving India's mammalian biodiversity."
                 image2="/bengaltiger.jpg"
-                image3="/zebra.jpg"
+                image3="/deer-8.jpg"
             />
         </div>
     )
