@@ -35,6 +35,7 @@ const CurrentProjects = () => {
                         title={project.title}
                         image={project.image}
                         year={project.year}
+                        fundedBy={project.fundedBy}
                         description={project.description}
                     />
                 ))}
