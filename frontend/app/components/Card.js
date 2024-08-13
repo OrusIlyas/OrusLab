@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { urlFor } from '../client';
 
-const Card = ({ title, image, year, description, fundedBy }) => {
+const Card = ({ title, image, year, description, fundedby }) => {
     const maxWords = 20;
     const words = description.split(' ');
     const [showFullText, setShowFullText] = useState(false);
@@ -21,7 +21,7 @@ const Card = ({ title, image, year, description, fundedBy }) => {
             )}
             <h2 className="text-lg font-semibold mb-2 h-28">{title}</h2>
             <h3 className="text-xs font-semibold mb-2">{year}</h3>
-            <h3 className="text-xs font-semibold mb-2">{fundedBy}</h3>
+            <h3 className="text-xs font-semibold mb-2">{fundedby}</h3>
 
             <div className="relative">
                 <p
