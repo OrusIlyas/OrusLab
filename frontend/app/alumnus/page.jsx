@@ -34,7 +34,7 @@ const Page = () => {
     <div className="flex flex-col justify-center items-center mt-24">
       <div>
         <h1 className="text-2xl sm:text-4xl font-bold my-5 underline decoration-yellow-400">
-          Meet our PhD Candidates
+          Meet our Alumni
         </h1>
       </div>
 
