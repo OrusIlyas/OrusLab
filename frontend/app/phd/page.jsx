@@ -11,7 +11,7 @@ function urlFor(source) {
   return builder.image(source).url();
 }
 
-const page = () => {
+const Page = () => {
   const [phdStudents, setPhdStudents] = useState([]);
 
   useEffect(() => {
@@ -59,4 +59,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
