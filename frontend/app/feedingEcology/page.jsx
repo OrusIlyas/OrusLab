@@ -1,26 +1,51 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { client } from "../client";
 import ResearchPage from "../components/ResearchPage";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source).url();
+}
 
 const Page = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = '*[_type == "feedingEcology"][0]';
+      const result = await client.fetch(query);
+
+      if (result) {
+        result.imagePath = urlFor(result.imagePath);
+        result.additionalImages = result.additionalImages.map((image) =>
+          urlFor(image)
+        );
+        setData(result);
+      } else {
+        console.error("No data found");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="mt-14">
+    <div>
       <ResearchPage
-        imagepath="/lioncouple2.jpg"
-        title="Feeding Ecology"
-        para1="We have conducted extensive research on the feeding ecology of various mammals, 
-                focusing on understanding resource partitioning, niche overlap and the feeding habits by 
-                collecting pellets, scats and dung in order to conduct microhistological assays to precisely
-                determine their diets. This approach is complemented by vegetation surveys and the use of 
-                remote sensing, GIS, and other software helps us to project habitat ranges and predict the 
-                viability of specific mammals in particular areas."
-        para2="This detailed understanding of feeding ecology is critical for developing effective 
-                conservation policies. By identifying suitable habitats and the dietary needs of wildlife, 
-                we can strategically relocate animals and maintain optimal conditions to ensure their survival. 
-                Our comprehensive research approach integrates various ecological and technological methods, 
-                significantly contributing to the sustainable management and conservation of mammalian 
-                biodiversity."
-        image2="/ecology-1.jpg"
-        image3="/ecology-2.jpg"
+        imagepath={data.imagePath}
+        title={data.title}
+        para1={data.paragraphs[0]}
+        para2={data.paragraphs[1]}
+        image2={data.additionalImages[0]}
+        image3={data.additionalImages[1]}
       />
     </div>
   );

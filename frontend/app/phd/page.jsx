@@ -20,7 +20,7 @@ const Page = () => {
         _id,
         name,
         description,
-        image // Include the entire image object
+        image 
       }`;
 
       const data = await client.fetch(query);

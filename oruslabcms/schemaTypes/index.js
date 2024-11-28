@@ -1,6 +1,10 @@
 import AlumniStudents from "./AlumniStudents"
 import CompletedProject from "./CompletedProject"
+import Conservation from "./Conservation"
 import CurrentProject from "./CurrentProject"
+import feedingEcology from "./feedingEcology"
+import Hero from "./Hero"
+import HumanAspect from "./HumanAspect"
 import MScStudents from "./MScStudents"
 import PhdStudents from "./PhdStudents"
 import PublishedBooksAuthored from "./PublishedBooksAuthored"
@@ -14,5 +18,9 @@ export const schemaTypes = [
   PublishedBooksEdited,
   ResearchJournalPapers, PhdStudents,
   MScStudents,
-  AlumniStudents
+  AlumniStudents,
+  Conservation,
+  HumanAspect,
+  feedingEcology,
+  Hero
 ]

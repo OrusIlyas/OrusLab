@@ -1,24 +1,51 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { client } from "../client";
 import ResearchPage from "../components/ResearchPage";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source).url();
+}
 
 const Page = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = '*[_type == "conservation"][0]';
+      const result = await client.fetch(query);
+
+      if (result) {
+        result.imagePath = urlFor(result.imagePath);
+        result.additionalImages = result.additionalImages.map((image) =>
+          urlFor(image)
+        );
+        setData(result);
+      } else {
+        console.error("No data found");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <ResearchPage
-        imagepath="/jackal.JPG"
-        title="Status and Conservation of Mammals"
-        para1="We have conducted extensive research on the conservation, status, and ecology of 
-                mammals, with a particular focus on ungulates. Our studies explore the population status, 
-                distribution, and ecological co-existence of sympatric species, providing crucial insights into 
-                their interactions and conservation needs. We investigate resource partitioning, habitat use, 
-                and niche overlap, which are essential for developing effective conservation strategies."
-        para2="Our work spans diverse ecosystems, including high-altitude regions of the Himalayas and
-                various tiger reserves in Madhya Pradesh. We primarily conduct status, abundance, and 
-                density estimations through both direct and indirect evidence, such as encounter rates, 
-                pellet group sampling, and scat analysis. This comprehensive and multidisciplinary approach 
-                significantly contributes to understanding and conserving India's mammalian biodiversity."
-        image2="/bengaltiger.jpg"
-        image3="/deer-8.jpg"
+        imagepath={data.imagePath}
+        title={data.title}
+        para1={data.paragraphs[0]}
+        para2={data.paragraphs[1]}
+        image2={data.additionalImages[0]}
+        image3={data.additionalImages[1]}
       />
     </div>
   );
