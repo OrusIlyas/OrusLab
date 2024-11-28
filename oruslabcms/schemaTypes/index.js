@@ -21,6 +21,6 @@ export const schemaTypes = [
   AlumniStudents,
   Conservation,
   HumanAspect,
-  feedingEcology,
-  Hero
+  Hero,
+  feedingEcology
 ]
