@@ -16,7 +16,7 @@ const Page = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = '*[_type == "FeedingEcology"][0]';
+      const query = '*[_type == "feedingEcology"][0]';
       const result = await client.fetch(query);
 
       if (result) {
