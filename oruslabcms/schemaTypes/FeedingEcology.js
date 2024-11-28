@@ -1,7 +1,7 @@
 
 
 export default {
-  name: 'feedingEcology',
+  name: 'FeedingEcology',
   title: 'Feeding Ecology',
   type: 'document',
   fields: [
